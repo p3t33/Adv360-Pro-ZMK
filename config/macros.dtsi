@@ -53,3 +53,12 @@
     bindings = <&macro_press &kp RCTRL>, <&macro_tap &kp U>, <&macro_release &kp RCTRL>, <&macro_tap &kp LEFT_BRACKET>;
   };
 
+  macro_not_equal_to_operator: macro_not_equal_to_operator {
+    compatible = "zmk,behavior-macro";
+    label = "macro_not_equal_to_operator";
+    #binding-cells = <0>;
+    bindings = <&macro_tap &kp EXCLAMATION &kp EQUAL>;
+  };
+
+
+
