@@ -5,14 +5,12 @@
 #include <dt-bindings/zmk/backlight.h>
 
 // The default layer is 0
-#define KEYPAD 1
-#define FUNCTION 2
-#define MOD      3
-#define WM 4
-#define NAV 5
-#define MEDIA 6
-#define NUM 7
-#define SYMBOL 8
+#define FUNCTION 1
+#define MOD      2
+#define WM 3
+#define NAV 4
+#define NUM 5
+#define SYMBOL 6
 
 
 
@@ -28,12 +26,29 @@
           bindings = <&sk LSHIFT>, <&caps_word>;
           mods = <(MOD_LSFT)>;
         };
-     rssh: rigt_smart_shift {
+     rssh: right_smart_shift {
            compatible = "zmk,behavior-mod-morph";
            label = "RIGHT_SMART_SHIFT";
            #binding-cells = <0>;
            bindings = <&sk RSHIFT>, <&caps_word>;
            mods = <(MOD_RSFT)>;
+        };
+
+     lsctrl: left_smart_ctrl {
+           compatible = "zmk,behavior-mod-morph";
+           label = "LEFT_SMART_CTRL";
+           #binding-cells = <0>;
+           bindings = <&mt LCTRL ESC>, <&kp EQUAL>;
+           mods = <(MOD_RCTL)>;
+           keep-mods = <(MOD_RCTL)>;
+        };
+     rsctrl: right_smart_ctrl {
+           compatible = "zmk,behavior-mod-morph";
+           label = "RIGHT_SMART_CTRL";
+           #binding-cells = <0>;
+           bindings = <&mt RCTRL ESC>, <&kp MINUS>;
+           mods = <(MOD_LCTL)>;
+           keep-mods = <(MOD_LCTL)>;
         };
 
       email: used_emails {
@@ -110,29 +125,20 @@
 
     default_layer {
       bindings = <
-        &kp EQUAL        &kp N1    &kp N2                &kp N3                &kp N4               &kp N5 &tog KEYPAD                                                                                                           &mo MOD &kp N6 &kp N7                &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp DEL          &kp Q     &kp W                 &kp E                 &kp R                &kp T  &email                                                                                                                &none   &kp Y  &ht_tmux_copy 0 U     &kp I     &kp O    &kp P    &kp BSLH
-        &caps_word       &kp A     &kp S                 &lt SYMBOL D          &lt NUM F            &kp G  &mo MEDIA       &mt LCTRL ESC       &kp LALT                   &kp RALT                   &mt RCTRL ESC               &none   &kp H  &kp J                 &kp K     &kp L    &kp SEMI &kp SQT
-        &lssh            &kp Z     &hm LC(X) X           &hm LC(C) C           &hm LC(V) V          &kp B         &none    &none               &mt LSHFT HOME &none &none &mt RSHFT END              &none           &none               &kp N  &kp M                 &kp COMMA &kp DOT  &kp FSLH &rssh
-        &mo FUNCTION     &kp GRAVE &kp PRINTSCREEN       &kp LEFT              &kp RIGHT                          &kp BSPC &lt NAV TAB         &mt_sl LGUI WM             &mt_sl RGUI WM             &kp ENTER       &kp SPACE                  &kp DOWN &kp UP       &kp LBKT  &kp RBKT &mo FUNCTION
-      >;
-    };
-    keypad {
-      bindings = <
-        &kp EQUAL        &kp N1    &kp N2                &kp N3         &kp N4           &kp N5 &trans                                                                                                           &mo MOD &kp N6 &kp KP_NUM   &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-        &kp DEL          &kp Q     &kp W                 &kp E          &kp R            &kp T  &email                                                                                                           &none   &kp Y  &kp KP_N7    &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-        &caps_word       &kp A     &kp S                 &kp D          &kp F            &kp G  &none           &mt LCTRL ESC   &kp LALT                   &kp RALT                  &mt RCTRL ESC               &none   &kp H  &kp KP_N4    &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-        &lssh            &kp Z     &hm LC(X) X           &hm LC(C) C    &hm LC(V) V      &kp B         &none    &none           &mt LSHFT HOME &none &none &mt RSHFT END             &none           &none               &kp N  &kp KP_N1    &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &rssh
-        &mo FUNCTION     &kp GRAVE &kp PRINTSCREEN       &kp LEFT       &kp RIGHT                      &kp BSPC &kp TAB         &mt_sl LGUI WM             &mt_sl RGUI WM            &kp  ENTER      &kp KP_N0                  &kp DOWN     &kp UP       &kp KP_DOT    &kp RBKT        &mo FUNCTION
+        &kp EQUAL        &kp N1    &kp N2                &kp N3                &kp N4               &kp N5 &none                                                                                                               &mo MOD &kp N6 &kp N7                &kp N8    &kp N9   &kp N0   &kp MINUS
+        &kp DEL          &kp Q     &kp W                 &kp E                 &kp R                &kp T  &email                                                                                                              &none   &kp Y  &ht_tmux_copy 0 U     &kp I     &kp O    &kp P    &kp BSLH
+        &caps_word       &kp A     &kp S                 &lt SYMBOL D          &lt NUM F            &kp G  &none           &lsctrl             &hm LALT EQUAL                   &hm RALT MINUS     &rsctrl                     &none   &kp H  &kp J                 &kp K     &kp L    &kp SEMI &kp SQT
+        &lssh            &kp Z     &hm LC(X) X           &hm LC(C) C           &hm LC(V) V          &kp B         &none    &none               &mt LSHFT HOME &none &none       &mt RSHFT END      &none           &none               &kp N  &kp M                 &kp COMMA &kp DOT  &kp FSLH &rssh
+        &mo FUNCTION     &kp GRAVE &kp PRINTSCREEN       &kp LEFT              &kp RIGHT                          &kp BSPC &lt NAV TAB         &mt_sl LGUI WM                   &mt_sl RGUI WM     &kp ENTER       &kp SPACE                  &kp DOWN &kp UP       &kp LBKT  &kp RBKT &mo FUNCTION
       >;
     };
     fn {
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6  &tog KEYPAD                                                 &mo MOD &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans  &none                                                       &none   &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans             &trans &trans        &none   &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none  &none          &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &trans &trans                &trans &trans &trans  &trans  &trans
+        &kp F1 &kp F2 &kp F3 &kp F4          &kp F5            &kp F6      &none                                                       &mo MOD &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+        &trans &trans &trans &trans          &trans            &trans      &none                                                       &none   &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &kp C_VOLUME_UP &kp C_VOLUME_DOWN &kp C_MUTE  &none        &trans &trans             &trans &trans        &none   &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans          &trans            &trans            &none  &none  &trans &none &none &trans &none  &none          &trans &trans &trans &trans  &trans  &trans
+        &trans &trans &trans &trans          &trans                              &trans &trans &trans             &trans &trans &trans                &trans &trans &trans  &trans  &trans
       >;
     };
     mod {
@@ -146,7 +152,7 @@
     };
     wm {
       bindings = <
-        &kp F1 &kp F2 &kp F3           &kp F4         &kp F5         &kp F6  &tog KEYPAD                                                               &mo MOD &kp F7 &kp F8     &kp F9     &kp F10     &kp F11 &kp F12
+        &kp F1 &kp F2 &kp F3           &kp F4         &kp F5         &kp F6  &none                                                               &mo MOD &kp F7 &kp F8     &kp F9     &kp F10     &kp F11 &kp F12
         &trans &trans &kp LG(LS(N1))   &kp LG(LS(N2)) &kp LG(LS(N3)) &trans  &none                                                                     &none   &trans &kp RG(N1) &kp RG(N2) &kp RG(N3)  &trans  &trans
         &trans &trans &kp LG(LS(N4))   &kp LG(LS(N5)) &kp LG(LS(N6)) &trans  &none        &trans &trans                    &trans        &trans        &none   &trans &kp RG(N4) &kp RG(N5) &kp RG(N6)  &trans  &trans
         &trans &trans &kp LG(LS(N7))   &kp LG(LS(N8)) &kp LG(LS(N9)) &trans        &none  &none  &trans        &none &none &trans        &none  &none          &trans &kp RG(N7) &kp RG(N8) &kp RG(N9)  &trans  &trans
@@ -155,25 +161,16 @@
     };
     nav {
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6  &tog KEYPAD                                                 &mo MOD &kp F7   &kp F8   &kp F9 &kp F10    &kp F11 &kp F12
+        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6  &none                                                       &mo MOD &kp F7   &kp F8   &kp F9 &kp F10    &kp F11 &kp F12
         &trans &trans &trans &trans &trans &trans  &none                                                       &none   &trans   &trans   &trans &trans     &trans  &trans
         &trans &trans &trans &trans &trans &trans  &none        &trans &trans             &trans &trans        &none   &kp LEFT &kp DOWN &kp UP &kp RIGHT  &trans  &trans
         &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none  &none          &trans   &trans   &trans &trans     &trans  &trans
         &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &trans &trans                  &trans   &trans &trans     &trans  &trans
       >;
     };
-    media {
-      bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4          &kp F5            &kp F6      &tog KEYPAD                                                 &mo MOD &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-        &trans &trans &trans &trans          &trans            &trans      &none                                                       &none   &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &kp C_VOLUME_UP &kp C_VOLUME_DOWN &kp C_MUTE  &none        &trans &trans             &trans &trans        &none   &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans          &trans            &trans           &none   &none  &trans &none &none &trans &none  &none          &trans &trans &trans &trans  &trans  &trans
-        &trans &trans &trans &trans          &trans                             &trans  &trans &trans             &trans &trans &trans                &trans &trans &trans  &trans  &trans
-      >;
-    };
     num {
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6  &tog KEYPAD                                                 &mo MOD &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
+        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6  &none                                                       &mo MOD &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
         &trans &trans &trans &trans &trans &trans  &none                                                       &none   &trans &kp N1 &kp N2 &kp N3  &trans  &trans
         &trans &trans &trans &trans &trans &trans  &none        &trans &trans             &trans &trans        &none   &trans &kp N4 &kp N5 &kp N6  &trans  &trans
         &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none  &none          &trans &kp N7 &kp N8 &kp N9  &trans  &trans
@@ -182,11 +179,11 @@
     };
     symbol {
       bindings = <
-        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6  &tog KEYPAD                                                 &mo MOD &kp F7 &kp F8                                       &kp F9             &kp F10          &kp F11 &kp F12
-        &trans &trans &trans &trans &trans &trans  &none                                                       &none   &trans &ht_tmux_copy 0 EXCLAMATION      &kp AT             &kp POUND        &trans  &trans
-        &trans &trans &trans &trans &trans &trans  &none        &trans &trans             &trans &trans        &none   &trans &kp DOLLAR                                   &kp PERCENT        &kp CARET        &trans  &trans
-        &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none  &none          &trans &kp AMPERSAND                                &kp ASTERISK       &trans           &trans  &trans
-        &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &trans &trans                &trans                                       &trans             &trans           &trans  &trans
+        &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6  &none                                                       &mo MOD &kp F7 &kp F8                        &kp F9             &kp F10          &kp F11 &kp F12
+        &trans &trans &trans &trans &trans &trans  &none                                                       &none   &trans &ht_tmux_copy 0 EXCLAMATION   &kp AT             &kp POUND        &trans  &trans
+        &trans &trans &trans &trans &trans &trans  &none        &trans &trans             &trans &trans        &none   &trans &kp DOLLAR                    &kp PERCENT        &kp CARET        &trans  &trans
+        &trans &trans &trans &trans &trans &trans        &none  &none  &trans &none &none &trans &none  &none          &trans &kp AMPERSAND                 &kp ASTERISK       &trans           &trans  &trans
+        &trans &trans &trans &trans &trans               &trans &trans &trans             &trans &trans &trans                &trans                        &trans             &trans           &trans  &trans
       >;
     };
   };
