@@ -57,8 +57,24 @@
     compatible = "zmk,behavior-macro";
     label = "macro_not_equal_to_operator";
     #binding-cells = <0>;
+    wait-ms = <10>;
     bindings = <&macro_tap &kp EXCLAMATION &kp EQUAL>;
   };
+  macro_home_dir: macro_home_dir {
+    compatible = "zmk,behavior-macro";
+    label = "macro_home_dir";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &kp TILDE &kp SLASH >;
+  };
+  macro_dir_up: macro_dir_up {
+    compatible = "zmk,behavior-macro";
+    label = "macro_dir_up";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &kp DOT &kp DOT &kp SLASH>;
+  };
+
 
 
 
