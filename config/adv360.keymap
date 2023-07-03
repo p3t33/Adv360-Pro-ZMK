@@ -107,7 +107,7 @@
           bindings = <&macro_tmux_copy>, <&kp>;
       };
 
-      ht_not_equal_to_operator: tmux_copy {
+      ht_not_equal_to_operator: not_equal_to_operator {
           compatible = "zmk,behavior-hold-tap";
           label = "NOT_EQUAL_TO_OPERATOR";
           #binding-cells = <2>;
@@ -152,11 +152,11 @@
     };
     wm {
       bindings = <
-        &kp F1 &kp F2 &kp F3           &kp F4         &kp F5         &kp F6  &none                                                               &mo MOD &kp F7 &kp F8     &kp F9     &kp F10     &kp F11 &kp F12
-        &trans &trans &kp LG(LS(N1))   &kp LG(LS(N2)) &kp LG(LS(N3)) &trans  &none                                                                     &none   &trans &kp RG(N1) &kp RG(N2) &kp RG(N3)  &trans  &trans
-        &trans &trans &kp LG(LS(N4))   &kp LG(LS(N5)) &kp LG(LS(N6)) &trans  &none        &trans &trans                    &trans        &trans        &none   &trans &kp RG(N4) &kp RG(N5) &kp RG(N6)  &trans  &trans
-        &trans &trans &kp LG(LS(N7))   &kp LG(LS(N8)) &kp LG(LS(N9)) &trans        &none  &none  &trans        &none &none &trans        &none  &none          &trans &kp RG(N7) &kp RG(N8) &kp RG(N9)  &trans  &trans
-        &trans &trans &trans           &trans         &trans                       &trans &trans &kp LG(LSHFT)             &kp RG(RSHFT) &trans &trans                &trans     &trans     &trans      &trans  &trans
+        &kp F1 &kp F2 &kp F3           &kp F4         &kp F5         &kp F6  &none                                                                     &mo MOD &kp F7   &kp F8                &kp F9                &kp F10                &kp F11 &kp F12
+        &trans &trans &kp LG(LS(N1))   &kp LG(LS(N2)) &kp LG(LS(N3)) &trans  &none                                                                     &none   &trans   &hm LG(LS(N1)) LG(N1) &hm LG(LS(N2)) LG(N2) &hm LG(LS(N3)) LG(N3)  &trans  &trans
+        &trans &trans &kp LG(LS(N4))   &kp LG(LS(N5)) &kp LG(LS(N6)) &trans  &none        &trans &trans                    &trans        &trans        &none   &trans   &hm LG(LS(N4)) LG(N4) &hm LG(LS(N5)) LG(N5) &hm LG(LS(N6)) LG(N6)  &trans  &trans
+        &trans &trans &kp LG(LS(N7))   &kp LG(LS(N8)) &kp LG(LS(N9)) &trans        &none  &none  &trans        &none &none &trans        &none  &none          &trans   &hm LG(LS(N7)) LG(N7) &hm LG(LS(N8)) LG(N8) &hm LG(LS(N9)) LG(N9)  &trans  &trans
+        &trans &trans &trans           &trans         &trans                       &trans &trans &kp LG(LSHFT)             &kp RG(RSHFT) &trans &hm LG(LS(N0)) RG(N0)   &trans                &trans                &trans                 &trans  &trans
       >;
     };
     nav {
