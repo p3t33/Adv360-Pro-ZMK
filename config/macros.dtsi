@@ -46,12 +46,6 @@
     #binding-cells = <0>;
     bindings = <&macro_tap &kp B &kp J &kp C &kp N4 &kp N3 &kp N6 &kp AT_SIGN &kp M &kp O &kp T &kp O &kp R &kp O &kp L &kp A &kp S &kp O &kp L &kp U &kp T &kp I &kp O &kp N &kp S &kp DOT &kp C &kp O &kp M>;
   };
-  macro_tmux_copy: macro_tmux_copy {
-    compatible = "zmk,behavior-macro";
-    label = "macro_tmux_copy";
-    #binding-cells = <0>;
-    bindings = <&macro_press &kp RCTRL>, <&macro_tap &kp U>, <&macro_release &kp RCTRL>, <&macro_tap &kp LEFT_BRACKET>;
-  };
 
   macro_not_equal_to_operator: macro_not_equal_to_operator {
     compatible = "zmk,behavior-macro";
@@ -84,4 +78,187 @@
   };
 
 
-
+  // tmux layer macros
+  macro_tmux_prefix: macro_tmux_prefix {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_prefix";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &kp RC(U)>;
+  };
+  macro_tmux_detach: macro_tmux_detach {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_detach";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp D>;
+  };
+  macro_tmux_reload_setting: macro_tmux_reload_setting {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_reload_setting";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp U>;
+  };
+  macro_tmux_copy_mode: macro_tmux_copy_mode {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_copy_mode";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp LBKT>;
+  };
+  macro_tmux_new_window: macro_tmux_new_window {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_new_window";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp C>;
+  };
+  macro_tmux_rename_window: macro_tmux_rename_window {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_rename_window";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp COMMA>;
+  };
+  macro_tmux_rename_session: macro_tmux_rename_session {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_rename_session";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp DOLLAR>;
+  };
+  // This is done using my tmux-sessionizer that uses fzf.
+  macro_tmux_search: macro_tmux_search {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_search";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp F>;
+  };
+  macro_tmux_horizontal_pane_split: macro_tmux_horizontal_pane_split {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_horizontal_pane_split";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp H>;
+  };
+  macro_tmux_vertical_pane_split: macro_tmux_vertical_pane_split {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_vertical_pane_split";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp V>;
+  };
+  macro_tmux_kill_window_or_pane: macro_tmux_kill_window_or_pane {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_kill_window_or_pane";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp X>;
+  };
+  macro_tmux_kill_session: macro_tmux_kill_session {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_kill_session";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp LS(X)>;
+  };
+  macro_tmux_list_sessions: macro_tmux_list_sessions {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_list_sessions";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp S>;
+  };
+  macro_tmux_new_session: macro_tmux_new_session {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_new_session";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp O>;
+  };
+  macro_tmux_move_window_left: macro_tmux_move_window_left {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_move_window_left";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp HOME>;
+  };
+  macro_tmux_move_window_right: macro_tmux_move_window_right {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_move_window_right";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp END>;
+  };
+  macro_tmux_last_window: macro_tmux_last_window {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_last_window";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp L>;
+  };
+  macro_tmux_go_to_window_one: macro_tmux_go_to_window_one {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_one";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N1>;
+  };
+  macro_tmux_go_to_window_two: macro_tmux_go_to_window_two {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_two";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N2>;
+  };
+  macro_tmux_go_to_window_three: macro_tmux_go_to_window_three {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_three";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N3>;
+  };
+  macro_tmux_go_to_window_four: macro_tmux_go_to_window_four {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_four";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N4>;
+  };
+  macro_tmux_go_to_window_five: macro_tmux_go_to_window_five {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_five";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N5>;
+  };
+  macro_tmux_go_to_window_six: macro_tmux_go_to_window_six {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_six";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N6>;
+  };
+  macro_tmux_go_to_window_seven: macro_tmux_go_to_window_seven {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_seven";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N7>;
+  };
+  macro_tmux_go_to_window_eighth: macro_tmux_go_to_window_eighth {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_eighth";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N8>;
+  };
+  macro_tmux_go_to_window_nine: macro_tmux_go_to_window_nine {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_to_window_nine";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp N9>;
+  };
