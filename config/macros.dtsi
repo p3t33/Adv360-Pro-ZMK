@@ -100,12 +100,49 @@
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp U>;
   };
+  macro_tmux_save_session: macro_tmux_save_session {
+    compatible = "zmk,behavior-macro";
+    label = "MACRO_TMUX_SAVE_SESSION";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp RC(S)>;
+  };
+  macro_tmux_load_session: macro_tmux_load_session {
+    compatible = "zmk,behavior-macro";
+    label = "MACRO_TMUX_LOAD_SESSION";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp RC(R)>;
+  };
+  // copy mode in tmux using the yank plugin
+  macro_tmux_copy_current_line: macro_tmux_copy_current_line {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_copy_current_line";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp Y>;
+  };
+  macro_tmux_copy_pwd: macro_tmux_copy_pwd {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_copy_pwd";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp RS(Y)>;
+  };
   macro_tmux_copy_mode: macro_tmux_copy_mode {
     compatible = "zmk,behavior-macro";
     label = "macro_tmux_copy_mode";
     #binding-cells = <0>;
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp LBKT>;
+  };
+
+  macro_tmux_zoom_pane: macro_tmux_zoom_pane {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_zoom_pane";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp Z>;
   };
   macro_tmux_new_window: macro_tmux_new_window {
     compatible = "zmk,behavior-macro";
@@ -192,12 +229,19 @@
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp END>;
   };
-  macro_tmux_last_window: macro_tmux_last_window {
+  macro_tmux_switch_to_last_window: macro_tmux_switch_to_last_window {
     compatible = "zmk,behavior-macro";
-    label = "macro_tmux_last_window";
+    label = "macro_tmux_switch_to_last_window";
     #binding-cells = <0>;
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp L>;
+  };
+  macro_tmux_switch_to_last_session: macro_tmux_switch_to_last_session {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_last_session";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp RS(L)>;
   };
   macro_tmux_go_to_window_one: macro_tmux_go_to_window_one {
     compatible = "zmk,behavior-macro";
