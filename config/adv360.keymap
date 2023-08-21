@@ -301,7 +301,7 @@
           quick_tap_ms = <175>;
           global-quick-tap;
           flavor = "tap-preferred";
-          bindings = <&macro_tmux_copy_current_line>, <&macro_tmux_copy_mode>;
+          bindings = <&macro_tmux_extrakto_plugin>, <&macro_tmux_thumbs_plugin>;
       };
       // double tap smart yank
       dtsyank: double_tap_smart_yank {

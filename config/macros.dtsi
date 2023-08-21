@@ -129,13 +129,29 @@
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp RS(Y)>;
   };
-  macro_tmux_copy_mode: macro_tmux_copy_mode {
+  macro_tmux_copy_mode_search_up: macro_tmux_copy_mode_search_up {
     compatible = "zmk,behavior-macro";
-    label = "macro_tmux_copy_mode";
+    label = "macro_tmux_copy_mode_search_up";
     #binding-cells = <0>;
     wait-ms = <10>;
-    bindings = <&macro_tap &macro_tmux_prefix &kp LBKT>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp LBKT &kp QUESTION>;
   };
+
+  macro_tmux_thumbs_plugin: macro_tmux_thumbs_plugin {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_thumbs_plugin";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp RC(Y)>;
+  };
+  macro_tmux_extrakto_plugin: macro_tmux_extrakto_plugin {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_extrakto_plugin";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp RC(RS(Y))>;
+  };
+  // end of copy mode in tmux using the yank plugin
 
   macro_tmux_zoom_pane: macro_tmux_zoom_pane {
     compatible = "zmk,behavior-macro";
