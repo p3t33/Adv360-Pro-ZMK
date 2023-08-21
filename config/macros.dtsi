@@ -149,7 +149,7 @@
     label = "macro_tmux_extrakto_plugin";
     #binding-cells = <0>;
     wait-ms = <10>;
-    bindings = <&macro_tap &macro_tmux_prefix &kp RC(RS(Y))>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp RA(Y)>;
   };
   // end of copy mode in tmux using the yank plugin
 
