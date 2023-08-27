@@ -195,6 +195,13 @@
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp F>;
   };
+  macro_tmux_open_lazygit: macro_tmux_open_lazygit {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_open_lazygit";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp G>;
+  };
   macro_tmux_horizontal_pane_split: macro_tmux_horizontal_pane_split {
     compatible = "zmk,behavior-macro";
     label = "macro_tmux_horizontal_pane_split";
