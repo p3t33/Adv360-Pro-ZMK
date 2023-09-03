@@ -229,7 +229,7 @@
            compatible = "zmk,behavior-mod-morph";
            label = "SMART_BACK_SPACE";
            #binding-cells = <0>;
-           bindings = <&hm RC(BSPC) BSPC>, <&kp DEL>;
+           bindings = <&hm RC(BSPC) BSPC>, <&hm RC(DEL) DEL>;
            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
 
