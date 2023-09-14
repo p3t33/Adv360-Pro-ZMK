@@ -85,12 +85,13 @@
 
 
   // tmux layer macros
+  // =================
   macro_tmux_prefix: macro_tmux_prefix {
     compatible = "zmk,behavior-macro";
     label = "macro_tmux_prefix";
     #binding-cells = <0>;
     wait-ms = <10>;
-    bindings = <&macro_tap &kp RC(U)>;
+    bindings = <&macro_tap &kp RC(A)>;
   };
   macro_tmux_detach: macro_tmux_detach {
     compatible = "zmk,behavior-macro";
@@ -157,7 +158,15 @@
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp RA(Y)>;
   };
+  macro_tmux_go_into_select_mode: macro_tmux_go_into_select_mode {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_go_into_select_mode";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp LBKT>;
+  };
   // end of copy mode in tmux using the yank plugin
+  // =================
 
   macro_tmux_zoom_pane: macro_tmux_zoom_pane {
     compatible = "zmk,behavior-macro";
