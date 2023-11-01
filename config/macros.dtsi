@@ -276,6 +276,13 @@
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp L>;
   };
+  macro_tmux_create_window_from_pane: macro_tmux_create_window_from_pane {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_create_window_from_pane";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp W>;
+  };
   macro_tmux_switch_to_last_session: macro_tmux_switch_to_last_session {
     compatible = "zmk,behavior-macro";
     label = "macro_tmux_last_session";
