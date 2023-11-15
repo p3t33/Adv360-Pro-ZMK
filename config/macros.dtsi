@@ -353,3 +353,10 @@
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp N9>;
   };
+  macro_disconect_from_stuck_ssh_connection: macro_disconect_from_stuck_ssh_connection {
+    compatible = "zmk,behavior-macro";
+    label = "macro_disconect_from_stuck_ssh_connection";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&kp ENTER>, <&kp TILDE>, <&kp DOT>, <&kp ENTER>;
+  };
