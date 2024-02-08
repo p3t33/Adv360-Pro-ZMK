@@ -108,6 +108,13 @@
     wait-ms = <10>;
     bindings = <&macro_tap &macro_tmux_prefix &kp U>;
   };
+    macro_tmux_evaluate_config: macro_tmux_evaluate_config {
+    compatible = "zmk,behavior-macro";
+    label = "macro_tmux_evaluate_config";
+    #binding-cells = <0>;
+    wait-ms = <10>;
+    bindings = <&macro_tap &macro_tmux_prefix &kp E>;
+  };
   macro_tmux_save_session: macro_tmux_save_session {
     compatible = "zmk,behavior-macro";
     label = "MACRO_TMUX_SAVE_SESSION";
