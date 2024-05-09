@@ -264,96 +264,15 @@
           bindings = <&macro_triple_backtick>, <&kp>;
       };
       //tmux bindings
-      ht_tmux_smart_kill: ht_tmux_smart_kill {
+      ht_tmux: ht_tmux {
           compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_KILL";
+          label = "HT_TMUX ";
           #binding-cells = <2>;
           tapping-term-ms = <200>;
           quick_tap_ms = <175>;
           global-quick-tap;
           flavor = "tap-preferred";
-          bindings = <&macro_tmux_kill_session>, <&macro_tmux_kill_window_or_pane>;
-      };
-      ht_tmux_smart_sessions: ht_tmux_smart_sessions {
-          compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_SESSIONS";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
-          flavor = "tap-preferred";
-          bindings = <&macro_tmux_list_sessions>, <&macro_tmux_search_with_tmux_sessionizer>;
-      };
-      ht_tmux_smart_left_bracket: ht_tmux_smart_left_bracket {
-          compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_LEFT_BRACKET";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
-          flavor = "tap-preferred";
-          bindings = <&macro_tmux_go_into_select_mode>, <&macro_tmux_move_window_left>;
-      };
-      ht_tmux_smart_create: ht_tmux_smart_create {
-          compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_CREATE";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
-          flavor = "tap-preferred";
-          bindings = <&macro_tmux_new_session>, <&macro_tmux_new_window>;
-      };
-      ht_tmux_smart_rename: ht_tmux_smart_rename {
-          compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_RENAME";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
-          flavor = "tap-preferred";
-          bindings = <&macro_tmux_rename_session>, <&macro_tmux_rename_window>;
-      };
-
-      ht_tmux_smart_restore: ht_tmux_smart_restore {
-          compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_RESTORE";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
-          flavor = "tap-preferred";
-          bindings = <&macro_tmux_load_session>, <&macro_tmux_save_session>;
-      };
-      ht_tmux_smart_switch: ht_tmux_smart_swith {
-          compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_SWITCH";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
-          flavor = "tap-preferred";
-          bindings = <&macro_tmux_switch_to_last_session>, <&macro_tmux_switch_to_last_window>;
-      };
-      ht_tmux_smart_yank: ht_tmux_smart_yank {
-          compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_YANK";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
-          flavor = "tap-preferred";
-          bindings = <&macro_tmux_extrakto_plugin>, <&macro_tmux_thumbs_plugin>;
-      };
-      ht_tmux_smart_yank_prompt: ht_tmux_smart_yank_prompt {
-          compatible = "zmk,behavior-hold-tap";
-          label = "TMUX_SMART_YANK_PROMPT";
-          #binding-cells = <2>;
-          tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
-          flavor = "tap-preferred";
-          bindings = <&macro_tmux_copy_pwd >, <&macro_tmux_copy_current_line>;
+          bindings = <&macro_tmux_prefix_with_parameterized_command>, <&macro_tmux_prefix_with_parameterized_command>;
       };
       // double tap smart yank
       dtsyank: double_tap_smart_yank {
@@ -361,7 +280,7 @@
            label = "DOUBLE_TAP_SMART_YAMK";
            #binding-cells = <0>;
            tapping-term-ms = <150>;
-           bindings = <&ht_tmux_smart_yank 0 0>, <&ht_tmux_smart_yank_prompt 0 0>;
+           bindings = <&ht_tmux RA(Y) RC(Y)>, <&ht_tmux RS(Y) Y>;
       };
     };
 
@@ -433,11 +352,11 @@
     };
     tmux {
       bindings = <
-        &kp F1 &kp F2 &kp F3                               &kp F4                       &kp F5                          &kp F6                    &none                                                                                                                                                             &mo MOD &kp F7                            &kp F8                         &kp F9                          &kp F10                         &kp F11                           &kp F12
-        &trans &trans &macro_tmux_create_window_from_pane  &macro_tmux_evaluate_config  &ht_tmux_smart_rename 0 0       &trans                    &none                                                                                                                                                             &none   &dtsyank                          &macro_tmux_go_to_window_one   &macro_tmux_go_to_window_two    &macro_tmux_go_to_window_three  &trans                            &trans
-        &trans &trans &ht_tmux_smart_sessions 0 0          &macro_tmux_detach           &macro_tmux_focus_on_pane       &macro_tmux_open_lazygit  &none                     &trans                    &trans                                        &trans &trans                                                   &none   &macro_tmux_horizontal_pane_split &macro_tmux_go_to_window_four  &macro_tmux_go_to_window_five   &macro_tmux_go_to_window_six    &trans                            &trans
-        &trans &trans &trans                               &ht_tmux_smart_kill 0 0      &macro_tmux_vertical_pane_split &ht_tmux_smart_restore 0 0                                                    &ht_tmux_smart_left_bracket 0 0               &macro_tmux_move_window_right                                           &trans                            &macro_tmux_go_to_window_seven &macro_tmux_go_to_window_eighth &macro_tmux_go_to_window_nine   &macro_tmux_copy_mode_search_up   &trans
-        &trans &trans &trans                               &trans                       &trans                                                                       &trans &ht_tmux_smart_switch 0 0 &trans                                        &trans &ht_tmux_smart_create 0 0  &kp N0                                                                  &trans                         &trans                          &trans                          &trans                            &trans
+        &kp F1 &kp F2 &kp F3                                           &kp F4                                              &kp F5                                                &kp F6                                           &none                                                                                                                                                                        &mo MOD &kp F7                                                       &kp F8                                                        &kp F9                                                            &kp F10                                                          &kp F11                                                &kp F12
+        &trans &trans &macro_tmux_prefix_with_parameterized_command W  &macro_tmux_prefix_with_parameterized_command E     &ht_tmux DOLLAR COMMA                                 &trans                                           &none                                                                                                                                                                        &none   &dtsyank                                                     &macro_tmux_prefix_with_parameterized_command N1              &macro_tmux_prefix_with_parameterized_command N2                  &macro_tmux_prefix_with_parameterized_command N3                 &trans                                                 &trans
+        &trans &trans &ht_tmux RS(S) S                                 &macro_tmux_prefix_with_parameterized_command D     &macro_tmux_prefix_with_parameterized_command F       &macro_tmux_prefix_with_parameterized_command G  &none             &trans                                       &trans                                        &trans &trans                                                   &none   &macro_tmux_prefix_with_parameterized_command H              &macro_tmux_prefix_with_parameterized_command N4              &macro_tmux_prefix_with_parameterized_command N5                  &macro_tmux_prefix_with_parameterized_command N6                 &trans                                                 &trans
+        &trans &trans &trans                                           &ht_tmux LS(X) X                                    &macro_tmux_prefix_with_parameterized_command V       &ht_tmux RC(R) RC(S)                                                                                            &ht_tmux LBKT HOME                            &macro_tmux_prefix_with_parameterized_command END                       &trans                                                       &macro_tmux_prefix_with_parameterized_command N7              &macro_tmux_prefix_with_parameterized_command N8                  &macro_tmux_prefix_with_parameterized_command N9                 &macro_tmux_copy_mode_search_up                        &trans
+        &trans &trans &trans                                           &trans                                              &trans                                                                                                            &trans &ht_tmux RS(L) L                             &trans                                        &trans &ht_tmux O C  &kp N0                                                                                                          &trans                                                        &trans                                                            &trans                                                           &trans                                                 &trans
       >;
     };
   };
