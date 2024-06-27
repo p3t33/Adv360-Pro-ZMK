@@ -103,6 +103,51 @@
             mods = <(MOD_RSFT)>;
         };
 
+      td_email_macro: td_email_macro {
+           compatible = "zmk,behavior-tap-dance";
+           label = "TD_EMAIL_MACRO";
+           #binding-cells = <0>;
+           tapping-term-ms = <200>;
+           bindings = <&macro_personal_email>, <&macro_work_email>;
+      };
+
+      wm_mark_1: wm_mark_1 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "WM_MARK_1";
+            #binding-cells = <0>;
+            bindings = <&td_email_macro>, <&mt LA(LS(N1)) LA(N1)>;
+            mods = <(MOD_LGUI | MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI | MOD_RGUI)>;
+        };
+
+      wm_mark_2: wm_mark_2 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "WM_MARK_2";
+            #binding-cells = <0>;
+            bindings = <&td_email_macro>, <&mt LA(LS(N2)) LA(N2)>;
+            mods = <(MOD_LGUI | MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI | MOD_RGUI)>;
+        };
+
+      wm_mark_3: wm_mark_3 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "WM_MARK_3";
+            #binding-cells = <0>;
+            bindings = <&macro_name>, <&mt LA(LS(N3)) LA(N3)>;
+            mods = <(MOD_LGUI | MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI | MOD_RGUI)>;
+        };
+
+
+      wm_mark_4: wm_mark_4 {
+            compatible = "zmk,behavior-mod-morph";
+            label = "WM_MARK_4";
+            #binding-cells = <0>;
+            bindings = <&td_email_macro>, <&mt LA(LS(N4)) LA(N4)>;
+            mods = <(MOD_LGUI | MOD_RGUI)>;
+            keep-mods = <(MOD_LGUI | MOD_RGUI)>;
+        };
+
       hm: homerow_mods {
           compatible = "zmk,behavior-hold-tap";
           label = "HOMEROW_MODS";
@@ -289,11 +334,11 @@
 
     default_layer {
       bindings = <
-        &kp EQUAL                   &kp N1                          &kp N2                &kp N3                &kp N4               &kp N5       &none                                                                                                                                   &mo MOD &kp N6 &kp N7                &kp N8    &kp N9   &kp N0            &kp MINUS
-        &kp DEL                     &kp Q                           &kp W                 &kp E                 &hm LC(R) R          &hm LC(T) T  &email                                                                                                                                  &none   &kp Y  &kp U                 &kp I     &kp O    &kp P             &hm PIPE BSLH
-        &hm LC(T) LC(R)             &ht_select_all_and_copy 0 A     &kp S                 &lt SYMBOL D          &lt NUM F            &kp G        &none           &slctrl             &hm LALT EQUAL                   &hm RALT MINUS     &srctrl                                         &none   &kp H  &kp J                 &kp K     &kp L    &hm COLON SEMI    &hm SQT DQT
-        &lssh                       &kp Z                           &hm LC(X) X           &hm LC(C) C           &hm LC(V) V          &kp B                                            &slbracket                       &srbracket                                                                 &kp N  &kp M                 &kp COMMA &kp DOT  &hm QMARK FSLH    &rssh
-        &mo FUNCTION                &sgrave                         &kp PRINTSCREEN       &kp LEFT              &kp RIGHT                                &sbspace &lt NAV TAB         &lsgui                           &rsgui             &hm LS(ENTER) ENTER       &kp SPACE                            &kp DOWN              &kp UP    &kp LBKT &macro_disconect_from_stuck_ssh_connection          &mo FUNCTION
+        &kp EQUAL                   &kp N1                          &kp N2                &kp N3                &kp N4               &kp N5       &none                                                                                                                                   &mo MOD                 &kp N6 &kp N7                &kp N8    &kp N9   &kp N0                                              &kp MINUS
+        &kp DEL                     &kp Q                           &kp W                 &kp E                 &hm LC(R) R          &hm LC(T) T  &wm_mark_3                                                                                                                              &wm_mark_4              &kp Y  &kp U                 &kp I     &kp O    &kp P                                               &hm PIPE BSLH
+        &hm LC(T) LC(R)             &ht_select_all_and_copy 0 A     &kp S                 &lt SYMBOL D          &lt NUM F            &kp G        &wm_mark_1      &slctrl             &hm LALT EQUAL                   &hm RALT MINUS     &srctrl                                         &wm_mark_2              &kp H  &kp J                 &kp K     &kp L    &hm COLON SEMI                                      &hm SQT DQT
+        &lssh                       &kp Z                           &hm LC(X) X           &hm LC(C) C           &hm LC(V) V          &kp B                                            &slbracket                       &srbracket                                                                                 &kp N  &kp M                 &kp COMMA &kp DOT  &hm QMARK FSLH                                      &rssh
+        &mo FUNCTION                &sgrave                         &kp PRINTSCREEN       &kp LEFT              &kp RIGHT                                &sbspace &lt NAV TAB         &lsgui                           &rsgui             &hm LS(ENTER) ENTER       &kp SPACE                                            &kp DOWN              &kp UP    &kp LBKT &macro_disconect_from_stuck_ssh_connection          &mo FUNCTION
       >;
     };
     fn {
@@ -316,11 +361,11 @@
     };
     wm {
       bindings = <
-        &kp F1 &kp F2 &kp F3               &kp F4             &kp F5             &kp F6  &none                                                                          &mo MOD &kp F7   &kp F8                &kp F9                &kp F10                &kp F11 &kp F12
-        &trans &trans &kp LG(LC(LS(N1)))   &kp LG(LC(LS(N2))) &kp LG(LC(LS(N3))) &trans  &none                                                                          &none   &trans   &tdws1                &tdws2                &tdws3                 &trans  &trans
-        &trans &trans &kp LG(LC(LS(N4)))   &kp LG(LC(LS(N5))) &kp LG(LC(LS(N6))) &trans  &none        &trans &trans                         &trans        &trans        &none   &trans   &tdws4                &tdws5                &tdws6                 &trans  &trans
-        &trans &trans &kp LG(LC(LS(N7)))   &kp LG(LC(LS(N8))) &kp LG(LC(LS(N9))) &trans                      &trans                         &trans                              &trans   &tdws7                &tdws8                &tdws9                 &trans  &trans
-        &trans &trans &trans               &trans             &trans                           &trans &kp LG(TAB) &kp LG(LSHFT)             &kp RG(RSHFT) &trans &tdws10                 &trans                &trans                &trans                 &trans  &trans
+        &kp F1 &kp F2 &kp F3               &kp F4             &kp F5             &kp F6  &none                                                                                                                         &mo MOD                         &kp F7   &kp F8                &kp F9                &kp F10                &kp F11 &kp F12
+        &trans &trans &kp LG(LC(LS(N1)))   &kp LG(LC(LS(N2))) &kp LG(LC(LS(N3))) &trans  &mt LG(LA(LS(N3))) LG(LA(N3))                                                                                                 &mt LG(LA(LS(N4))) LG(LA(N4))   &trans   &tdws1                &tdws2                &tdws3                 &trans  &trans
+        &trans &trans &kp LG(LC(LS(N4)))   &kp LG(LC(LS(N5))) &kp LG(LC(LS(N6))) &trans  &mt LG(LA(LS(N1))) LG(LA(N1))        &trans      &trans                    &trans        &trans                               &mt LG(LA(LS(N2))) LG(LA(N2))   &trans   &tdws4                &tdws5                &tdws6                 &trans  &trans
+        &trans &trans &kp LG(LC(LS(N7)))   &kp LG(LC(LS(N8))) &kp LG(LC(LS(N9))) &trans                                                   &trans                    &trans                                                                             &trans   &tdws7                &tdws8                &tdws9                 &trans  &trans
+        &trans &trans &trans               &trans             &trans                                                   &trans &kp LG(TAB) &kp LG(LSHFT)             &kp RG(RSHFT) &trans &tdws10                                                                &trans                &trans                &trans                 &trans  &trans
       >;
     };
     nav {

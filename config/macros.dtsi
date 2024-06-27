@@ -53,6 +53,13 @@
     bindings = <&macro_tap &kp B &kp J &kp C &kp N4 &kp N3 &kp N6 &kp AT_SIGN &kp M &kp O &kp T &kp O &kp R &kp O &kp L &kp A &kp S &kp O &kp L &kp U &kp T &kp I &kp O &kp N &kp S &kp DOT &kp C &kp O &kp M>;
   };
 
+  macro_name: macro_name {
+    compatible = "zmk,behavior-macro";
+    label = "macro_name";
+    #binding-cells = <0>;
+    bindings = <&macro_tap &kp LS(K) &kp O &kp B &kp I &kp SPACE &kp LS(M) &kp E &kp D &kp R &kp I &kp S &kp H>;
+  };
+
   macro_not_equal_to_operator: macro_not_equal_to_operator {
     compatible = "zmk,behavior-macro";
     label = "macro_not_equal_to_operator";
