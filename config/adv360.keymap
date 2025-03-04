@@ -126,7 +126,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "WM_MARK_1";
             #binding-cells = <0>;
-            bindings = <&td_email_macro>, <&mt LA(LS(N1)) LA(N1)>;
+            bindings = <&kp N1>, <&mt LA(LS(N1)) LA(N1)>;
             mods = <(MOD_LGUI | MOD_RGUI)>;
             keep-mods = <(MOD_LGUI | MOD_RGUI)>;
         };
@@ -135,7 +135,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "WM_MARK_2";
             #binding-cells = <0>;
-            bindings = <&td_email_macro>, <&mt LA(LS(N2)) LA(N2)>;
+            bindings = <&kp N2>, <&mt LA(LS(N2)) LA(N2)>;
             mods = <(MOD_LGUI | MOD_RGUI)>;
             keep-mods = <(MOD_LGUI | MOD_RGUI)>;
         };
@@ -144,7 +144,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "WM_MARK_3";
             #binding-cells = <0>;
-            bindings = <&macro_name>, <&mt LA(LS(N3)) LA(N3)>;
+            bindings = <&kp N3>, <&mt LA(LS(N3)) LA(N3)>;
             mods = <(MOD_LGUI | MOD_RGUI)>;
             keep-mods = <(MOD_LGUI | MOD_RGUI)>;
         };
@@ -154,7 +154,7 @@
             compatible = "zmk,behavior-mod-morph";
             label = "WM_MARK_4";
             #binding-cells = <0>;
-            bindings = <&td_email_macro>, <&mt LA(LS(N4)) LA(N4)>;
+            bindings = <&kp N4>, <&mt LA(LS(N4)) LA(N4)>;
             mods = <(MOD_LGUI | MOD_RGUI)>;
             keep-mods = <(MOD_LGUI | MOD_RGUI)>;
         };
@@ -346,7 +346,7 @@
     default_layer {
       display-name = "Base";
       bindings = <
-        &kp EQUAL                   &kp N1                          &kp N2                &kp N3                &kp N4               &kp N5       &none                                                                                                                                   &mo MOD                 &kp N6 &kp N7                &kp N8    &kp N9   &kp N0                                              &kp MINUS
+        &kp EQUAL                   &kp N1                          &kp N2                &kp N3                &kp N4               &kp N5       &td_email_macro                                                                                                                         &mo MOD                 &kp N6 &kp N7                &kp N8    &kp N9   &kp N0                                              &kp MINUS
         &kp DEL                     &kp Q                           &kp W                 &kp E                 &hm LC(R) R          &hm LC(T) T  &wm_mark_3                                                                                                                              &wm_mark_4              &kp Y  &kp U                 &kp I     &kp O    &kp P                                               &hm PIPE BSLH
         &hm LC(T) LC(R)             &ht_select_all_and_copy 0 A     &kp S                 &lt SYMBOL D          &lt NUM F            &kp G        &wm_mark_1      &slctrl             &hm LALT EQUAL                   &hm RALT MINUS     &srctrl                                         &wm_mark_2              &kp H  &kp J                 &kp K     &kp L    &hm COLON SEMI                                      &hm SQT DQT
         &lssh                       &kp Z                           &hm LC(X) X           &hm LC(C) C           &hm LC(V) V          &kp B                                            &slbracket                       &srbracket                                                                                 &kp N  &kp M                 &kp COMMA &kp DOT  &hm QMARK FSLH                                      &rssh
@@ -366,7 +366,7 @@
     mod {
       display-name = "Mod";
       bindings = <
-        &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                        &trans                 &none        &none        &none        &none &none &none
+        &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &macro_name                                                                  &trans                 &none        &none        &none        &none &none &none
         &none &none        &none        &none        &none        &none        &bootloader                                                                  &bootloader            &none        &none        &none        &none &none &none
         &none &none        &none        &none        &none        &none        &none                   &none &none    &bt BT_CLR &none                      &rgb_ug RGB_MEFS_CMD 5 &none        &none        &none        &none &none &none
         &none &none        &none        &none        &none        &none                                      &none    &none                                                        &none        &none        &none        &none &none &none
