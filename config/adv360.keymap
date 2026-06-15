@@ -164,8 +164,8 @@
           label = "HOMEROW_MODS";
           #binding-cells = <2>;
           tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
+          quick-tap-ms = <175>;
+          require-prior-idle-ms = <175>;
           flavor = "tap-preferred";
           bindings = <&kp>, <&kp>;
       };
@@ -294,8 +294,8 @@
           label = "SELECT_ALL_AND_COPY";
           #binding-cells = <2>;
           tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
+          quick-tap-ms = <175>;
+          require-prior-idle-ms = <175>;
           flavor = "tap-preferred";
           bindings = <&macro_select_all_and_copy_it>, <&kp>;
       };
@@ -304,8 +304,8 @@
           label = "NOT_EQUAL_TO_OPERATOR";
           #binding-cells = <2>;
           tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
+          quick-tap-ms = <175>;
+          require-prior-idle-ms = <175>;
           flavor = "tap-preferred";
           bindings = <&macro_not_equal_to_operator>, <&kp>;
       };
@@ -314,8 +314,8 @@
           label = "TRIPLE_BACKTIC";
           #binding-cells = <2>;
           tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
+          quick-tap-ms = <175>;
+          require-prior-idle-ms = <175>;
           flavor = "tap-preferred";
           bindings = <&macro_triple_backtick>, <&kp>;
       };
@@ -325,8 +325,8 @@
           label = "HT_TMUX ";
           #binding-cells = <2>;
           tapping-term-ms = <200>;
-          quick_tap_ms = <175>;
-          global-quick-tap;
+          quick-tap-ms = <175>;
+          require-prior-idle-ms = <175>;
           flavor = "tap-preferred";
           bindings = <&macro_tmux_prefix_with_parameterized_command>, <&macro_tmux_prefix_with_parameterized_command>;
       };
